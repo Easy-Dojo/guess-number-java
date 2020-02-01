@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class GuessNumberGame {
+public class GuessNumberTest {
     @Test
     public void should_return_0A0B_when_no_number_is_correct() {
         //given
