@@ -1,12 +1,14 @@
 package com.thoughtworks.guessnumber;
 
-public class Game {
+import com.thoughtworks.guessnumber.exception.OutOfRangeAnswerException;
+import com.thoughtworks.guessnumber.generator.AnswerGenerator;
 
+public class Game {
 
     private final Answer answer;
 
-    public Game(Answer expectAnswer) {
-        this.answer = expectAnswer;
+    public Game(AnswerGenerator answerGenerator) throws OutOfRangeAnswerException {
+        this.answer = answerGenerator.generate();
     }
 
     public String guess(Answer inputAnswer) {
