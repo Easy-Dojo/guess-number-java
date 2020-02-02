@@ -1,5 +1,7 @@
 package com.thoughtworks.guessnumber;
 
+import com.thoughtworks.guessnumber.exception.OutOfRangeAnswerException;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,4 +39,13 @@ public class Answer {
         return this.numList.indexOf(num);
     }
 
+    public void validate() throws OutOfRangeAnswerException {
+        long validatedNum = numList.stream()
+                .map(Integer::parseInt)
+                .distinct()
+                .filter(num -> num < 10).count();
+        if (validatedNum < numList.size()) {
+            throw new OutOfRangeAnswerException("Answer format is incorrect");
+        }
+    }
 }
