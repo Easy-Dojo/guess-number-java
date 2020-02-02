@@ -1,11 +1,13 @@
 package com.thoughtworks.guessnumber.generator;
 
+import com.google.inject.Inject;
 import com.thoughtworks.guessnumber.Answer;
 import com.thoughtworks.guessnumber.exception.OutOfRangeAnswerException;
 
 public class AnswerGenerator {
     private final RandomIntGenerator randomIntGenerator;
 
+    @Inject
     public AnswerGenerator(RandomIntGenerator randomIntGenerator) {
         this.randomIntGenerator = randomIntGenerator;
     }

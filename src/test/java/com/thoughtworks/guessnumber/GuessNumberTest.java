@@ -1,6 +1,6 @@
 package com.thoughtworks.guessnumber;
 
-import com.thoughtworks.guessnumber.exception.OutOfRangeAnswerException;
+import com.thoughtworks.guessnumber.exception.OutOfGuessCountException;
 import com.thoughtworks.guessnumber.generator.AnswerGenerator;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,26 +24,26 @@ public class GuessNumberTest {
     }
 
     @Test
-    public void should_return_0A0B_when_no_number_is_correct() throws OutOfRangeAnswerException {
+    public void should_return_0A0B_when_no_number_is_correct() throws OutOfGuessCountException {
         //given
         Answer inputAnswer = Answer.createAnswer("5 6 7 8");
 
         //when
-        String result = game.guess(inputAnswer);
+        String result = game.guess(inputAnswer).getResult();
 
         //then
-        assertThat(result , is("0A0B"));
+        assertThat(result, is("0A0B"));
     }
 
     @Test
-    public void should_return_0A0B_when_1_is_correct() throws OutOfRangeAnswerException {
+    public void should_return_0A0B_when_1_is_correct() throws OutOfGuessCountException {
         //given
         Answer inputAnswer = Answer.createAnswer("1 5 6 7");
 
         //when
-        String result = game.guess(inputAnswer);
+        String result = game.guess(inputAnswer).getResult();
 
         //then
-        assertThat(result , is("1A0B"));
+        assertThat(result, is("1A0B"));
     }
 }
